@@ -1,0 +1,47 @@
+# SmartQueue Change Log
+
+## 2026-04-15 - Professional Queue Numbering and Dashboard Update
+- Added separate Regular and Priority queue numbering.
+- Regular tickets now display as R-01 through R-99.
+- Priority tickets now display as P-01 through P-99.
+- Queue numbers wrap back to 01 after 99, while avoiding active duplicate numbers.
+- Updated ticket display across admin dashboard, user dashboard, TV display, and queue history.
+- Added clear Regular/Priority lane cards on the Get Queue Number page.
+- Updated database.sql with last_regular_number and last_priority_number counters.
+- Updated upgrade_existing_db.sql for existing databases.
+- Kept service window dashboard with serving and next ticket per service.
+
+Terminal commands:
+- View this file: Get-Content CHANGELOG.txt
+- Check PHP syntax: Get-ChildItem -Filter *.php | ForEach-Object { php -l $_.FullName }
+- See recently edited files: Get-ChildItem -File | Sort-Object LastWriteTime -Descending | Select-Object LastWriteTime, Length, Name
+
+## 2026-04-15 - Public Kiosk and Layout Update
+- Get Queue Number is now public and does not require login.
+- Any walk-in user can choose a service and Regular/Priority lane freely.
+- Removed the one-active-ticket limit from the public ticket desk.
+- Public tickets can be generated with a typed customer name or as Walk-in Customer.
+- Main queue board is now public; admin/operator controls still require login.
+- Updated database schema so queue.user_id can be NULL for walk-in tickets.
+- Improved page spacing and removed awkward inner horizontal scroll behavior.
+- Compact TV display layout for common lobby screen sizes.
+
+## 2026-04-15 - Priority Express Serving
+- Added a dedicated Priority Express Serving lane in the admin/operator dashboard.
+- Added Call Priority and Mark Priority Done controls.
+- Regular/service call buttons now call regular tickets only, so priority can be handled separately.
+- TV display now shows Priority Serving, Regular Serving, and Next Priority as separate top panels.
+- Added visual styling for Priority Express lane and buttons.
+
+## 2026-04-15 - Admin Layout Polish
+- Balanced service-window cards and made regular/priority waiting lanes visually aligned.
+- Reduced oversized admin fonts and tighter card spacing for better readability.
+- Improved queue table column spacing and button sizing.
+- Added section anchors after admin actions, so Mark Done/Call Next returns to the relevant section instead of jumping to the top.
+- Service-window Mark Done now returns to the service windows section.
+
+## 2026-04-15 - Admin Section Order Update
+- Moved Waiting/Serving/Done/Cancelled summary cards directly under the Admin Dashboard header.
+- Priority Express Serving and Next Priority now sit below the summary cards.
+- Regular / Service Serving and Next Regular now sit below the priority row.
+- Added responsive metric row styling so the cards stay aligned cleanly.
